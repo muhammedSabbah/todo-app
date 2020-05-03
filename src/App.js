@@ -1,49 +1,36 @@
-    import React, { Component } from 'react';
-    import logo from './logo.svg';
-    import './App.css';
-     
-    class App extends Component {
-      render() {
-        return (
-          <div className="App">
-            <h1 className="hello">Hello World</h1>
-            <FirstComponent></FirstComponent>
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import FirstComponent from './components/learning/FirstComponent'
+import SecondComponent from './components/learning/SecondComponent'
+import ThirdComponent from './components/learning/ThirdComponent'
+import Counter from './components/counter/Counter'
+
+import './App.css';
+    
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Counter></Counter>
+      </div>
+        );
+      }
+  }
+
+  class LearningComponent extends Component {
+  render() {
+    return (
+      <div className="LearningComponent">
+         <h1 className="hello">Hello World</h1>
+             <FirstComponent></FirstComponent>
             <SecondComponent></SecondComponent>
             <ThirdComponent></ThirdComponent>
-          </div>
+      </div>
         );
       }
-    }
+  }
 
-    class FirstComponent extends Component {
-      render() {
-        return (
-          <div className="firstComponent">
-            First Component
-          </div>
-        );
-      }
-    }
-
-    class SecondComponent extends Component {
-      render() {
-        return (
-          <div className="secondComponent">
-            Second Component
-          </div>
-        );
-      }
-    }
-
-    function ThirdComponent() {
-      return (
-        <div className="thirdComponent">
-          Third Component
-        </div>
-      );
-    }
-
-    export default App;
+export default App;
 
     /*
     <header className="App-header">
