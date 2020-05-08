@@ -51,8 +51,8 @@ class CounterButton extends Component {
   render = () => {
     return (
       <div className="counterButton">
-        <button onClick= { this.increment }>+ {this.props.by}</button>
-        <button onClick= { this.decrement }>- {this.props.by}</button>
+        <button onClick= { this.increment } className="buttonValues">+ {this.props.by}</button>
+        <button onClick= { this.decrement } className="buttonValues">- {this.props.by}</button>
       </div>
     );
   }
