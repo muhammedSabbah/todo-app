@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import AuthService from '../todo/AuthService.js'
 import HelloWorldService from '../../components/api/todo/HelloWorldService.js'
 
 class WelcomeComponent extends Component {
@@ -12,24 +13,6 @@ class WelcomeComponent extends Component {
         this.callHelloWorldService = this.callHelloWorldService.bind(this)
         this.handleSuccessfullResponse = this.handleSuccessfullResponse.bind(this)
         this.handleError = this.handleError.bind(this)
-    }
-    render() {
-        return(
-        <div>
-            <h1>Welcome!</h1>
-            <div className="container">
-                Welcome Mr/{this.props.match.params.name} you can manage todo tasks
-                <Link to="/todo" > here.</Link>
-            </div>
-            <div className="container">
-                Call Hello World Service
-                <button className="btn" onClick={this.callHelloWorldService}>Call</button>
-            </div>
-            <div className="container">
-                {this.state.data}
-            </div>
-        </div>
-        );
     }
 
     callHelloWorldService() {
@@ -47,12 +30,39 @@ class WelcomeComponent extends Component {
     }
     
     handleSuccessfullResponse(response) {
-        this.setState({data: response.data.message})
         console.log(response)
+        this.setState({data: response.data.message})
     }
 
     handleError(error) {
         console.log(error.response)
+        let errorMessage= ''
+        if (error.message) {
+            errorMessage += error.message
+        }
+        if(error.response && error.response.data) {
+            errorMessage += error.response.data
+        }
+        this.setState({data: errorMessage})
+    }
+
+    render() {
+        return(
+        <div>
+            <h1>Welcome!</h1>
+            <div className="container">
+                Welcome Mr/{AuthService.getUsername()} you can manage todo tasks
+                <Link to="/todos" > here.</Link>
+            </div>
+            <div className="container">
+                Call Hello World Service
+                <button className="btn" onClick={this.callHelloWorldService}>Call</button>
+            </div>
+            <div className="container">
+                {this.state.data}
+            </div>
+        </div>
+        );
     }
 }
 

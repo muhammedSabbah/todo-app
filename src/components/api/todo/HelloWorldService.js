@@ -1,20 +1,26 @@
 import axios from "axios"
 
-
 class HelloWorldService {
 
+    constructor() {
+        this.baseUrl = "http://localhost:8080/"
+    }
+
     executeHelloWorldService() {
-        return axios.get('http://localhost:8080/hello-world')
+        let url = this.baseUrl + 'hello-world'
+        return axios.get(url)
         //console.log("Execute Hello World Service")
     }
 
     executeHelloWorldBeanService() {
-        return axios.get('http://localhost:8080/hello-world-bean')
+        let url = this.baseUrl + 'hello-world-bean'
+        return axios.get(url)
         //console.log("Execute Hello World Bean Service")
     }
 
     executeHelloWorldPathVariableService(name) {
-        return axios.get('http://localhost:8080/hello-world/name=' + name)
+        let url = this.baseUrl + 'hello-world/name=' + name
+        return axios.get(url)
         //console.log("Execute Hello World Path Variable Service")
     }
 }

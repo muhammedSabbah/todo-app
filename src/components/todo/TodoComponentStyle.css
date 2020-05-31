@@ -1,0 +1,19 @@
+.todo-header {
+    background-color: whitesmoke;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    color: black;
+    font-size: large;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.alert-message {
+    color: red;
+    font-size: medium;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    background-color: rgb(248, 208, 193);
+}
